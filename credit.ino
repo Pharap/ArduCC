@@ -12,9 +12,9 @@
 
 Arduboy2 arduboy;
 ArduboyTones sound(arduboy.audio.enabled);
-ArduEngine *arduEngine = new ArduEngine(arduboy);
+ArduEngine arduEngine(arduboy);
 
-SceneManager *sceneManager = new SceneManager(*arduEngine);
+SceneManager sceneManager(arduEngine);
 
 void setup()
 {
@@ -22,7 +22,7 @@ void setup()
 	arduboy.setFrameRate(30);
 	arduboy.initRandomSeed();
 
-	arduEngine->SetScene(CREDIT_CARD_SCENE_ID);
+	arduEngine.SetScene(CREDIT_CARD_SCENE_ID);
 }
 
 void loop()
@@ -31,7 +31,7 @@ void loop()
 	arduboy.pollButtons();
 	arduboy.clear();
 
-	arduEngine->Update(arduboy);
+	arduEngine.Update(arduboy);
 
 	arduboy.display();
 }

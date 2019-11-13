@@ -10,13 +10,12 @@ const int CREDIT_CARD_SCENE_ID = 2;
 class SceneManager
 {
 public:
-	BackCreditCard *backCreditCard;
-	CreditCard *creditCard;
+	BackCreditCard backCreditCard;
+	CreditCard creditCard;
 	
 	SceneManager(ArduEngine &engine)
+	: backCreditCard(engine, BACK_CREDIT_CARD_SCENE_ID), creditCard(engine, CREDIT_CARD_SCENE_ID)
 	{
-		backCreditCard = new BackCreditCard(engine, BACK_CREDIT_CARD_SCENE_ID);
-		creditCard = new CreditCard(engine, CREDIT_CARD_SCENE_ID);
 	}
 };
 #endif
